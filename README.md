@@ -69,9 +69,14 @@ trac.emit('get',
     func : 'transactionLength', // the endpoints function to call
     args : [780000],            // the arguments for the function (in this case only 1 argument, the block)
     call_id : ''                // a custom id that is passed through in the 'response' event above to identify for which call the response has been.
-});```
+});
+```
 
 #### Available endpoint getters
+
+The results for the calls of the below getters should be used in the "response" event above, explained in Code Anatomy.
+
+Parallel calls are encouraged. Especially if large amounts of data are requested, it is recommended to request them in parallel and smaller chunks.
 
 ```javascript
 
@@ -97,7 +102,7 @@ trac.emit('get',
 trac.emit('get',
 {
     func : 'inscribedParcelsByInscriptionIds',
-    args : [id1, id2, id3, ...],
+    args : [[id1, id2, id3, ...]],
     call_id : ''
 });
 
@@ -125,8 +130,118 @@ trac.emit('get',
 trac.emit('get',
 {
     func : 'inscribedBitmaps',
-    args : [block1, block2, block3, ...],
+    args : [[block1, block2, block3, ...]],
     call_id : ''
 });
 
+/**
+* Returns an array with inscribed (valid) parcels of a given block.
+*/
+
+trac.emit('get',
+{
+    func : 'inscribedParcels',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
+*  Returns an array of accumulated but not yet tapped parcels of a given address and bitmap inscription id.
+*/
+
+trac.emit('get',
+{
+    func : 'accumulatedParcels',
+    args : [owner_address, bitmap_inscription_id],
+    call_id : ''
+});
+
+/**
+* Returns the size of valid inscribed parcels for the given block.
+Used for the parcel getter below for iterations.
+*/
+
+trac.emit('get',
+{
+    func : 'parcelsLength',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
+* Returns an individual parcel of a given block and index.
+* The index should be based on the parcelsLength getter above for iterations.
+*/
+
+trac.emit('get',
+{
+    func : 'parcel',
+    args : [bitmap_block, index],
+    call_id : ''
+});
+
+/**
+* Similar to the parcel getter above but instead of the size-iterator, the actual tx number of a block is being used.
+*/
+trac.emit('get',
+{
+    func : 'parcelByTxIndex',
+    args : [bitmap_block, tx_index],
+    call_id : ''
+});
+
+/**
+* Returns the amount of transactions for a given block.
+*/
+
+trac.emit('get',
+{
+    func : 'transactionLength',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
+* Returns if a given Bitmap inscription is locked (in accumulation/staking mode)
+*/
+
+trac.emit('get',
+{
+    func : 'isBitmapLocked',
+    args : [bitmap_inscription_id],
+    call_id : ''
+});
+
+/**
+* Returns the transaction indexes of inscribed (valid) parcels of a given block
+*/
+
+trac.emit('get',
+{
+    func : 'txIndexesOfInscribedParcels',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
+* Like 'txIndexesOfInscribedParcels' but returns only accumulated (not yet tapped) parcels.
+*/
+
+trac.emit('get',
+{
+    func : 'txIndexesOfAccumulatedParcels',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
+* Returns true if the given address owns the given block, false if not.
+*/
+
+trac.emit('get',
+{
+    func : 'isBitmapOwner',
+    args : [address, bitmap_block],
+    call_id : ''
+});
 ```
