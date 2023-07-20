@@ -1,15 +1,22 @@
 # Bitmap Tracking with Trac
 This document is supposed to help retrieving indexed & tracked Bitmap data for further processing.
 After public release, you may want to self-host Trac. In this case, the described endpoint below will need to get changed into your own endpoint location.
+
 > #### Requirements
 > Some Javascript knowledge (Node or Browser)
 > Socket.io 4.6.1
+
 #### Setup
+
 HTML/JS
 `<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js" integrity="sha512-AI5A3zIoeRSEEX9z3Vyir8NqSMC1pY7r5h2cE+9J6FLsoEmSSGLFaqMQw8SWvoONXogkfFrkQiJfLeHLz3+HOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>`
+
 Node
+
 `npm install socket.io-client`
+
 Code Anatomy
+
 `
 // node only!
 const { io } = require("socket.io-client");
