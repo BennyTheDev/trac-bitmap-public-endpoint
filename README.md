@@ -2,7 +2,7 @@
 This document is supposed to help retrieving indexed & tracked Bitmap data for further processing.
 After public release, you may want to self-host Trac. In this case, the described endpoint below will need to get changed into your own endpoint location.
 
-* #### Requirements
+#### Requirements
 - Some Javascript knowledge (Node or Browser)
 - Socket.io 4.6.1
 
