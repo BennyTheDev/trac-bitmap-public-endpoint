@@ -42,7 +42,7 @@ trac.connect();
 // default response event for all endpoint calls.
 // this event handles all incoming results for requests performed using "emit".
 //
-// You may use the response to render client update or store in your local database cache.
+// You may use the response to render client updates or store in your local database cache.
 //
 // Example response object: 
 // {
