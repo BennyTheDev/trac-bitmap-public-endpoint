@@ -41,6 +41,9 @@ trac.connect();
 
 // default response event for all endpoint calls.
 // this event handles all incoming results for requests performed using "emit".
+//
+// You may use the response to render client update or store in your local database cache.
+//
 // Example response object: 
 // {
 //    "error": "",
@@ -242,6 +245,39 @@ trac.emit('get',
 {
     func : 'isBitmapOwner',
     args : [address, bitmap_block],
+    call_id : ''
+});
+
+/**
+* Returns the amount of inscribed (valid) bitmaps.
+*/
+
+trac.emit('get',
+{
+    func : 'bitmapsLength',
+    args : [],
+    call_id : ''
+});
+
+/**
+* Returns an ordinal object with base64-encoded content, mime type, blocks, timestamp and more.
+*/
+
+trac.emit('get',
+{
+    func : 'ordinal',
+    args : [inscription id or number],
+    call_id : ''
+});
+
+/**
+* Returns that last known block number.
+*/
+
+trac.emit('get',
+{
+    func : 'latestBlock',
+    args : [],
     call_id : ''
 });
 ```
