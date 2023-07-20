@@ -1,0 +1,1 @@
+# trac-bitmap-public-endpoint
