@@ -17,8 +17,7 @@ Node
 
 Code Anatomy
 
-`
-// node only!
+`// node only!
 const { io } = require("socket.io-client");
 
 // connect to public Bitmap endpoint with Trac
@@ -63,5 +62,4 @@ trac.emit('get',
     func : 'transactionLength', // the endpoints function to call
     args : [780000],            // the arguments for the function (in this case only 1 argument, the block)
     call_id : ''                // a custom id that is passed through in the 'response' event above to identify for which call the response has been.
-});
-`
+});`
