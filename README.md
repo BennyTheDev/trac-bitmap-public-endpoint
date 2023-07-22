@@ -280,4 +280,17 @@ trac.emit('get',
     args : [],
     call_id : ''
 });
+
+/**
+ * Returns an object with owner address, block and tx hash of the given inscription id.
+ * Should _only_ be an inscription id of a bitmap or parcel as non-bitmap/-parcel inscriptions are not fully tracked.
+ * Returns null if not found.
+ */
+
+trac.emit('get',
+{
+    func : 'ownerOf',
+    args : [inscription id],
+    call_id : ''
+});
 ```
