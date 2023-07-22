@@ -138,6 +138,18 @@ trac.emit('get',
 });
 
 /**
+ * Returns the bitmap's inscription id and number if the bitmap exists (is inscribed and valid).
+ * Or null if the bitmap at the given block doesn't exist.
+ */
+
+trac.emit('get',
+{
+    func : 'bitmap',
+    args : [bitmap_block],
+    call_id : ''
+});
+
+/**
 * Returns an array with inscribed (valid) parcels of a given block.
 */
 
