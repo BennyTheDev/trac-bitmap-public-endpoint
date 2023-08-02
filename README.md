@@ -272,6 +272,18 @@ trac.emit('get',
 });
 
 /**
+* Returns the block assigned to an inscription id or number.
+* Null if the inscription id or number isn't a valid bitmap.
+*/
+
+trac.emit('get',
+{
+    func : 'bitmapBlock',
+    args : [inscription id or number],
+    call_id : ''
+});
+
+/**
 * Returns an ordinal object with base64-encoded content, mime type, blocks, timestamp and more.
 */
 
